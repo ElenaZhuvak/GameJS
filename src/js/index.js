@@ -8,3 +8,4 @@ import "./foter-modal.js"
 
 import './team'
 
+import './header';
