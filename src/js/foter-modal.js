@@ -1,19 +1,21 @@
-const modal = document.getElementById('myModal');
+window.addEventListener('DOMContentLoaded', () => {
+  const refs = {
+    openModalBtn: document.querySelector('openModalBtn'),
+    closeModalBtn: document.querySelector('.footer-modal__close'),
+  };
 
-const btn = document.getElementById('openModalBtn');
+  refs.closeModalBtn.addEventListener('click', closeModal);
 
-const span = document.getElementsByClassName('.footer-modal__close')[0];
-
-btn.onclick = function () {
-  modal.style.display = 'block';
-};
-
-span.onclick = function () {
-  modal.style.display = 'none';
-};
-
-window.onclick = function (event) {
-  if (event.target == modal) {
-    modal.style.display = 'none';
+  function openModal() {
+    refs.modal.classList.toggle('is-hidden');
+    refs.modal.classList.add('animate__zoomIn');
+    refs.modal.classList.remove('animate__zoomOut');
   }
-};
+  function closeModal() {
+    refs.modal.classList.toggle('is-hidden');
+    refs.modal.classList.remove('animate__zoomIn');
+    refs.modal.classList.add('animate__zoomOut');
+  }
+
+  refs.openModalBtn.addEventListener('click', openModal);
+});
